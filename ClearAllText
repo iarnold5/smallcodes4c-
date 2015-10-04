@@ -1,0 +1,31 @@
+//
+// This code will clear the text from the said fields in c# forms, and can be used directly in the button used to clear fields.
+// Use it as::> ClearAllText(this);
+//
+public void ClearAllText(Control con)
+        {
+            foreach (Control c in con.Controls)
+            {
+                if (c is TextBox || c is ComboBox || c is RichTextBox)
+                {
+                    if (c is TextBox)
+                    {
+                        ((TextBox)c).ResetText();
+                    }
+
+                    if (c is ComboBox)
+                    {
+                        ((ComboBox)c).ResetText();
+                    }
+
+                    if (c is RichTextBox)
+                    {
+                        ((RichTextBox)c).ResetText();
+                    }
+                }
+                else
+                {
+                    ClearAllText(c);
+                }
+            }
+        }
